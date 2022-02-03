@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Oblig1</title>
+    <script src="Oblig1.js"></script>
+</head>
+
+<body>
+    <div
+          style="margin:60px 0; border: solid; width: 400px; padding: 40px 60px;">
+<h2>Bestilling av kinobiletter</h2>
+
+
+    <!--- velg film-->
+        Velg film:
+    <select id="velg film her">
+        <option value="">velg film</option>
+        <option value="Spider man">ٍSpider man: no way home</option>
+        <option value="Lion">Lion</option>
+        <option value="007">007</option>
+    </select>
+        <label id = "err0" style="color: red;"></label>
+
+    <br>
+    <br>
+
+    Antall
+   <input type="number" style="width: 30px" min="1" id="antall"/>
+        <label id="err1" style="color: red;"></label>
+
+    <br>
+    <br>
+<table>
+   <tr>
+   <td>Fornavn</td>
+    <td><input type="text"  placeholder="skriv inn fornavnet ditt" id="navn"/></td>
+    <td id="err2" style="color: red;"></td>
+  </tr>
+
+  <tr>
+    <td>Etternavn</td>
+    <td><input type="text" placeholder="skriv inn etternavnet ditt" id="navn1"/></td>
+      <td id="err3" style="color: red;"></td>
+  </tr>
+
+  <tr>
+    <td>Epost</td>
+    <td><input type="email" placeholder="skriv inn epost din" id="email"/></td>
+      <td id="err4" style="color: red;"></td>
+  </tr>
+
+  <tr>
+    <td>Telefonnr</td>
+    <td><input type="text"  placeholder="skriv inn telefonnr ditt" id="tlnr" /></td>
+      <td id="err5" style="color: red;"></td>
+  </tr>
+
+</table>
+
+    <br>
+    <br>
+    <!-- click-->
+   <button onclick="kjop()">Kjøp billett</button>
+
+
+    <br>
+
+<h2>Alle billetter</h2>
+        <div id="uttt"></div>
+        <button onclick="nullstil()">Slett alle billettene</button>
+
+  </div>
+</body>
+</html>
