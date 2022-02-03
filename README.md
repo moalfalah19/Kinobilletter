@@ -6,7 +6,7 @@ GitHub brukernavn: moalfalah19
 
 GitHub repo URL: https://github.com/DATA1700/oblig-1-moalfalah19
 
-URL til Heroku app: 
+URL til Heroku app: https://oblig1js.herokuapp.com/
 
 Fullt navn: Mohanad Al-Falah
 
