@@ -1,7 +1,9 @@
+// Array to store purchased tickets
 let personliste = [];
 
+// Function triggered when the "Kjøp billett" button is clicked
 function kjop() {
-
+    // Clear previous error messages
     document.getElementById("err0").innerHTML = "";
     document.getElementById("err1").innerHTML = "";
     document.getElementById("err2").innerHTML = "";
@@ -10,6 +12,7 @@ function kjop() {
     document.getElementById("err5").innerHTML = "";
 
     let ut = "";
+    // Create a ticket object from the user input
     let billett = {
         film: document.getElementById("velg film her").value,
         antall: document.getElementById("antall").value,
@@ -18,12 +21,20 @@ function kjop() {
         telefonnr: document.getElementById("tlnr").value,
         epost: document.getElementById("email").value,
     }
-    ut += "<table><tr><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" + "</tr>";
+
+    // Display a table header
+    ut += "<table><tr><th>Film</th><th>Antall</th><th>Fornavn" +
+        "</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" + "</tr>";
+
+    // Display the user's ticket information
     document.getElementById("uttt").innerHTML = ut;
 
-    if (billett.film === ""||billett.antall === "" || billett.fornavn === "" || billett.etternavn === "" || billett.telefonnr === "" || billett.epost === "") {
+    // Check if any required fields are empty
+    if (billett.film === "" || billett.antall === "" || billett.fornavn === "" ||
+        billett.etternavn === "" || billett.telefonnr === "" || billett.epost === "") {
 
-        if (billett.film === ""){
+        // Display specific error messages for each field
+        if (billett.film === "") {
             document.getElementById("err0").innerHTML = "Velg en film";
         }
         if (billett.antall === "") {
@@ -42,8 +53,7 @@ function kjop() {
             document.getElementById("err4").innerHTML = "Skriv noe inn i epost";
         }
     } else {
-
-
+        // Add the ticket to the array and display all tickets
         personliste.push(billett);
         for (let p of personliste) {
             ut += "<tr>";
@@ -53,39 +63,30 @@ function kjop() {
         ut += "</table>"
         document.getElementById("uttt").innerHTML = ut;
 
-        document.getElementById("err0").value= "";
+        // Clear input fields after successful purchase
+        document.getElementById("err0").value = "";
         document.getElementById("antall").value = "";
         document.getElementById("navn").value = "";
         document.getElementById("navn1").value = "";
         document.getElementById("tlnr").value = "";
         document.getElementById("email").value = "";
     }
-
 }
 
-
+// Function triggered when the "Slett alle billettene" button is clicked
 function nullstil() {
+    // Clear the array and input fields
     personliste = [];
-    personliste.film = document.getElementById("velg film her").value = "";
-    personliste.navn = document.getElementById("navn").value = "";
-    personliste.etternavn = document.getElementById("navn1").value = "";
-    personliste.antall = document.getElementById("antall").value = "";
-    personliste.telefonnr = document.getElementById("tlnr").value = "";
-    personliste.epost = document.getElementById("email").value = "";
+    document.getElementById("velg film her").value = "";
+    document.getElementById("navn").value = "";
+    document.getElementById("navn1").value = "";
+    document.getElementById("antall").value = "";
+    document.getElementById("tlnr").value = "";
+    document.getElementById("email").value = "";
 
-    let ut = "<table><tr>" + "<th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>epost</th><th>Antall</th><th>film</th>" + "</tr>";
-
-
+    // Display an empty table
+    let ut = "<table><tr>" + "<th>Fornavn</th><th>Etternavn</th><th>Telefonnr" +
+        "</th><th>epost</th><th>Antall</th><th>film</th>" + "</tr>";
     ut += "</table>";
     document.getElementById("uttt").innerHTML = ut;
-
 }
-
-
-
-
-
-
-
-
-
