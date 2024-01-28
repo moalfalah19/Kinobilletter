@@ -1,5 +1,18 @@
 // Array to store purchased tickets
 let personliste = [];
+// Function to validate email format
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+
+// Function to validate phone number format
+function validatePhoneNumber(tlnr) {
+    // Accepts numbers with optional spaces, hyphens, or parentheses
+    const phoneRegex = /^\d{1,4}[-\s]?(\d{1,4}[-\s]?){0,3}\d{1,10}$/;
+    return phoneRegex.test(tlnr);
+}
 
 // Function triggered when the "Kjøp billett" button is clicked
 function kjop() {
@@ -52,7 +65,22 @@ function kjop() {
         if (billett.epost === "") {
             document.getElementById("err4").innerHTML = "Skriv noe inn i epost";
         }
+
+
     } else {
+        if (!validateEmail(billett.epost)) {
+            document.getElementById("err4").innerHTML = "Skriv inn en gyldig e-postadresse";
+            return;
+        }
+
+
+        // Validate phone number format
+        if (!validatePhoneNumber(billett.telefonnr)) {
+            console.error("Ugyldig telefonnummer:", billett.telefonnr);
+            document.getElementById("err5").innerHTML = "Skriv inn et gyldig telefonnummer";
+            return;
+        }
+
         // Add the ticket to the array and display all tickets
         personliste.push(billett);
         for (let p of personliste) {
